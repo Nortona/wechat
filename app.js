@@ -6,33 +6,92 @@ App({
     // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
 
-    // 登录
-    // wx.login({
-    //   success: res => {
-    //     // 发送 res.code 到后台换取 openId, sessionKey, unionId
-    //   }
-    // })
-    // // 获取用户信息
-    // wx.getSetting({
-    //   success: res => {
-    //     if (res.authSetting['scope.userInfo']) {
-    //       // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-    //       wx.getUserInfo({
-    //         success: res => {
-    //           // 可以将 res 发送给后台解码出 unionId
-    //           this.globalData.userInfo = res.userInfo
-
-    //           // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-    //           // 所以此处加入 callback 以防止这种情况
-    //           if (this.userInfoReadyCallback) {
-    //             this.userInfoReadyCallback(res)
-    //           }
-    //         }
-    //       })
+    // function userLogin() {
+    //   wx.checkSession({
+    //     success: function () {
+    //       wx.reLaunch({
+    //         url: '../index/index'
+    //       });
+    //     },
+    //     fail: function () {
+    //       //不存在登陆态
+    //       onLogin()
     //     }
-    //   }
-    // })
-  },
+    //   })
+    // }
+     
+    // function onLogin() {
+    //   wx.login({
+    //     success: function (res) {
+    //       if (res.code) {
+    //         //发起网络请求
+    //         wx.request({
+    //           url: 'Our Server ApiUrl',
+    //           data: {
+    //             code: res.code
+    //           },
+    //           success: function (res) {
+    //             const self = this
+    //             if (逻辑成功) {
+    //               //获取到用户凭证 存儲 3rd_session 
+    //               var json = JSON.parse(res.data.Data)
+    //               wx.setStorage({
+    //                 key: "third_Session", 
+    //                 data: json.third_Session
+    //               })
+    //               getUserInfo()
+    //             }
+    //             else {
+     
+    //             }
+    //           },
+    //           fail: function (res) {
+     
+    //           }
+    //         })
+    //       }
+    //     },
+    //     fail: function (res) {
+      
+    //     }
+    //   })
+     
+    // }
+     
+    // function getUserInfo() {
+    //   wx.getUserInfo({
+    //     success: function (res) {
+    //       var userInfo = res.userInfo
+    //       userInfoSetInSQL(userInfo)
+    //     },
+    //     fail: function () {
+    //       userAccess()
+    //     }
+    //   })
+    // }
+     
+    // function userInfoSetInSQL(userInfo) {
+    //   wx.getStorage({
+    //     key: 'third_Session',
+    //     success: function (res) {
+    //       wx.request({
+    //         url: 'http://39.1106.92.62/wechat/usersetinsql.php',
+    //         data: {
+    //           third_Session: res.data,
+    //           nickName: userInfo.nickName,
+    //           avatarUrl: userInfo.avatarUrl,
+    //           gender: userInfo.gender,
+    //           province: userInfo.province,
+    //           city: userInfo.city,
+    //           country: userInfo.country
+    //         },
+    //         success: function (res) {
+    //           if (逻辑成功) {
+    //             //SQL更新用户数据成功
+    //           }
+    //           else {
+    //             //SQL更新用户数据失败
+              },
   globalData: {
     // userInfo: null,
     // book: null

@@ -1,2 +1,62 @@
-<!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<!-- <view wx:if="{{isHide}}">
+  <view wx:if="{{canIUse}}" >
+      <view class='header'>
+          <image src='/images/wx_login.png'></image>
+      </view>
+
+      <view class='content'>
+          <view>申请获取以下权限</view>
+          <text>获得你的公开信息(昵称，头像等)</text>
+      </view>
+
+      <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" size="mini"  bindgetuserinfo="bindGetUserInfo" bindtap='index'>
+          授权登录
+      </button>
+  </view>
+  <view wx:else>请升级微信版本</view>
+</view> -->
+<view class='headerView'>
+      <view class="userinfo">  
+      <view class="userinfo-avatar">  
+        <open-data  type="userAvatarUrl"></open-data>  
+      </view>  
+        <open-data type="userNickName"></open-data>  
+    </view>  
+    
+</view>
+
+<!-- 
+我的预约：发布的活动预约
+我的动态：参与的拍摄动态发布
+我的优惠券：
+设置：个人信息
+ -->
+<view class='msgListView' bindtap='mylend'>
+  <image class='msgIcon' src='../../images/yuyue.png'></image>
+  <text class='MsgTxt' >我的借阅</text>
+  <image class='msgArrow' src='../../images/jt.png'></image>
+</view>
+
+<view class='msgListView' bindtap='mybr'>
+  <image class='msgIcon' src='../../images/dongtai.png'></image>
+  <text class='MsgTxt' >我的发布</text>
+  <image class='msgArrow' src='../../images/jt.png'></image>
+</view>
+
+<view class='msgListView' bindtap='coupon'>
+  <image class='msgIcon' src='../../images/youhui.png'></image>
+  <text class='MsgTxt' >我的</text>
+  <image class='msgArrow' src='../../images/jt.png'></image>
+</view>
+
+<view class='msgListView' bindtap='settingInfo'>
+  <image class='msgIcon' src='../../images/setting.png'></image>
+  <text class='MsgTxt' >编辑资料</text>
+  <image class='msgArrow' src='../../images/jt.png'></image>
+</view>
+
+<!-- <button class="{{showGetUser}} getUserInfo" open-type="getUserInfo"> 授权昵称信息 </button>  -->
+
+<!-- <view class='myView'>联系客服：</view>
+<contact-button class='cBtn' type="default-dark" size="20" session-from="weapp">
+</contact-button>  -->

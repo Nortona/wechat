@@ -1,15 +1,17 @@
-// pages/detail/detail.js
-
+// pages/list/list.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    item: [],
     book: {}
   },
-  onLoad: function () {
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
     var that=this;
     wx.request({
       url: 'http://39.106.92.62/wechat/getbooklist.php',
@@ -28,25 +30,13 @@ Page({
         })
       },
     })
-    // var that = this
-    // var bookdetail = wx.getStorageSync('book')
-    // if (bookdetail) {
-    //   that.setData({
-    //     book: bookdetail
-    //   })
-    // } else {
-    //   console.log('获取新闻内容失败');
-    // }
-    // wx.chooseImage({
-    //   count: 1,
-    //   sizeType: ['original', 'compressed'],
-    //   sourceType: ['album', 'camera'],
-    //   success(res) {
-    //     // tempFilePath可以作为img标签的src属性显示图片
-    //     const tempFilePaths = res.tempFilePaths
-    //   }
-    // })
   },
+  more: function(e){
+     wx.navigateTo({
+         url: '../detail/detail'
+     })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

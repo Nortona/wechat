@@ -1,18 +1,20 @@
-// pages/detail/detail.js
-
+// pages/mylend/mylend.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    item: [],
-    book: {}
+    booklend: {}
   },
-  onLoad: function () {
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
     var that=this;
     wx.request({
-      url: 'http://39.106.92.62/wechat/getbooklist.php',
+      url: 'http://39.106.92.62/wechat/userlend.php',
       header: {
         'content-type': 'application/json'
       },
@@ -20,33 +22,16 @@ Page({
       success: res=>{
         console.log(res);
         wx.setStorage({
-          key: 'book',
+          key: 'userlend',
           data: res.data
         }),
         that.setData({
-          book: res.data
+          userlend: res.data
         })
       },
     })
-    // var that = this
-    // var bookdetail = wx.getStorageSync('book')
-    // if (bookdetail) {
-    //   that.setData({
-    //     book: bookdetail
-    //   })
-    // } else {
-    //   console.log('获取新闻内容失败');
-    // }
-    // wx.chooseImage({
-    //   count: 1,
-    //   sizeType: ['original', 'compressed'],
-    //   sourceType: ['album', 'camera'],
-    //   success(res) {
-    //     // tempFilePath可以作为img标签的src属性显示图片
-    //     const tempFilePaths = res.tempFilePaths
-    //   }
-    // })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

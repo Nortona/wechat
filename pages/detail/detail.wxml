@@ -1,5 +1,4 @@
-<!--pages/detail/detail.wxml-->
-<import src="articleItem.wxml" />
-<view class="container">
-  <template is="articleItem" data="{{item}}" />
+
+<view wx:for="{{book}}" class="shelf-nav-item">  
+        <text class="name">{{item.name}}</text>
 </view>

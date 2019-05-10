@@ -1,0 +1,5 @@
+ 
+<view wx:for="{{book}}" class="shelf-nav-item">  
+        <text class="time">{{item.name}}</text>
+        <button type="primary" bindtap='more'>更多</button>
+</view>
