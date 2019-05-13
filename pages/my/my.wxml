@@ -1,20 +1,3 @@
-<!-- <view wx:if="{{isHide}}">
-  <view wx:if="{{canIUse}}" >
-      <view class='header'>
-          <image src='/images/wx_login.png'></image>
-      </view>
-
-      <view class='content'>
-          <view>申请获取以下权限</view>
-          <text>获得你的公开信息(昵称，头像等)</text>
-      </view>
-
-      <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" size="mini"  bindgetuserinfo="bindGetUserInfo" bindtap='index'>
-          授权登录
-      </button>
-  </view>
-  <view wx:else>请升级微信版本</view>
-</view> -->
 <view class='headerView'>
       <view class="userinfo">  
       <view class="userinfo-avatar">  
@@ -43,9 +26,9 @@
   <image class='msgArrow' src='../../images/jt.png'></image>
 </view>
 
-<view class='msgListView' bindtap='coupon'>
+<view class='msgListView' bindtap='add'>
   <image class='msgIcon' src='../../images/youhui.png'></image>
-  <text class='MsgTxt' >我的</text>
+  <text class='MsgTxt' >上传图书</text>
   <image class='msgArrow' src='../../images/jt.png'></image>
 </view>
 

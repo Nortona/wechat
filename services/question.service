@@ -1,0 +1,54 @@
+import { exec } from '../utils/request.util'
+import config from '../config'
+
+function createQuestion(data) {
+return exec({
+url: `${config.url.question}/create`,
+method: 'post',
+data
+})
+}
+
+function getQuestions(page = 1) {
+return exec({
+login: false,
+url: `${config.url.question}/list`,
+data: { page, limit: 10 }
+})
+}
+
+function getQuestion(id) {
+return exec({
+url: `${config.url.question}/${id}/full`
+})
+}
+
+function searchQuestion(keyword = '') {
+return exec({
+login: false,
+url: `${config.url.question}/search`,
+data: { keyword }
+})
+}
+
+function getUserQuestions() {
+return exec({
+url: `${config.url.question}/my/list`
+})
+}
+
+function removeQuestion(id) {
+return exec({
+url: `${config.url.question}/${id}/remove`,
+method: 'post'
+})
+}
+
+module.exports = {
+createQuestion,
+getQuestions,
+getQuestion,
+searchQuestion,
+getUserQuestions,
+removeQuestion
+}

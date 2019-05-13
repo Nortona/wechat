@@ -5,7 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    booklend: {}
   },
 
   /**
@@ -21,13 +20,13 @@ Page({
       method: 'POST',
       success: res=>{
         console.log(res);
-        wx.setStorage({
-          key: 'userlend',
-          data: res.data
-        }),
-        that.setData({
-          userlend: res.data
-        })
+        // wx.setStorage({
+        //   key: 'userlend',
+        //   data: res.data
+        // }),
+        // that.setData({
+        //   userlend: res.data
+        // })
       },
     })
   },

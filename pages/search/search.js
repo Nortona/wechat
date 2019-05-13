@@ -2,25 +2,13 @@
   Page({
 
     data:{  
-      msgList:[], // 存储文章列表信息  
-      searchLogList:[], // 存储搜索历史记录信息  
-      hidden:true, // 加载提示框是否显示  
-      scrollTop : 0, // 居顶部高度  
-      inputShowed: false, // 搜索输入框是否显示  
-      inputVal: "", // 搜索的内容  
-      searchLogShowed: false // 是否显示搜索历史记录  
+      searchbooks: {}
     },  
-    onLoad: function(options){  
-      // 页面初始化 options为页面跳转所带来的参数  
-    //   var that = this;  
-    //   wx.getSystemInfo({  
-    //     success: function(res) {  
-    //       that.setData( {  
-    //         windowHeight: res.windowHeight,  
-    //         windowWidth: res.windowWidth  
-    //       })  
-    //     }
-    //   }
+    onLoad: function(options){
+      var that=this;    
+      this.setData({
+        options_id:options['id']
+      })
      },
 
   /**

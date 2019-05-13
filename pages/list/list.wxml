@@ -1,5 +1,28 @@
  
-<view wx:for="{{book}}" class="shelf-nav-item">  
-        <text class="time">{{item.name}}</text>
-        <button type="primary" bindtap='more'>更多</button>
+<van-search
+  value="{{ value }}"
+  placeholder="请输入搜索关键词"
+  use-action-slot
+  bind:search="onSearch"
+  bind:clear
+>
+  <view slot="action" bind:tap="onSearch">搜索</view>
+</van-search>
+<view wx:for="{{book}}">
+  <view>
+    <van-card
+        desc="描述"
+        title="{{item.name}}"
+        thumb="{{item.imageURL }}"
+        lazy-load=ture
+    >
+    <view slot="footer">
+      <van-button size="mini" type="primary" bindtap='more'>更多</van-button>
+    </view>
+  </van-card>  
+  </view>
+  <text>\n</text>
+                
+        <!-- <text class="time">{{item.name}}</text>
+        <button type="primary" bindtap='more'>更多</button> -->
 </view>

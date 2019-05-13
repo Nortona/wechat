@@ -42,6 +42,13 @@ Page({
       })
     }
     //登录凭证校验。通过 wx.login() 接口获得临时登录凭证 code 后传到开发者服务器调用此接口完成登录流程。
+    // wx.checkSession({
+    //   success: function(){
+    //   },
+    //   fail: function(){
+        
+    //   },
+    // })
     wx.login({
       
       success: function(res) {
@@ -56,10 +63,31 @@ Page({
             success: function(res) {
               var obj = {};
               obj.openid = res.data.openid;
+              obj.session_key=res.data.session_key;
               console.log("openid:" + obj.openid);
               console.log("session_key:" + res.data.session_key);
               obj.expires_in = Date.now() + res.data.expires_in;
               wx.setStorageSync('user', obj); //存储openid 
+              wx.switchTab({
+                url: '../list/list'
+              })
+              wx.request({
+                url: 'https://39.106.92.62/userdata.php',
+                data: {
+                  openid: obj.openid
+                },
+                method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+                // header: {}, // 设置请求的 header
+                success: function(res){
+                  // success
+                },
+                fail: function() {
+                  // fail
+                },
+                complete: function() {
+                  // complete
+                }
+              });
             }
           });
         } else {
@@ -78,8 +106,27 @@ Page({
   },
   onPostTap: function(event) {
     //授权登录之后实现页面之间的跳转
-    wx.navigateTo({
-      url: "../list/list"
+    wx.switchTab({
+      url: '../list/list'
     })
-  }
+  },
+  // postdata: function(){
+  //   wx.request({
+  //     url: 'https://39.106.92.62/userdata.php',
+  //     data: {
+  //       openid: user.openid
+  //     },
+  //     method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+  //     // header: {}, // 设置请求的 header
+  //     success: function(res){
+  //       // success
+  //     },
+  //     fail: function() {
+  //       // fail
+  //     },
+  //     complete: function() {
+  //       // complete
+  //     }
+  //   });
+  // }
 })

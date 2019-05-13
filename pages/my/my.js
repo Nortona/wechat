@@ -31,7 +31,7 @@ Page({
     // getuserMsg(that.data.userInfo)
     
   },
-  //添加  
+  //借来 
   mylend: function (e) {
     var that = this
     // console.log("拨打电话成功！")
@@ -39,7 +39,7 @@ Page({
       url: '../../pages/mylend/mylend'  //跳转页面的路径，可带参数 ？隔开，不同参数用 & 分隔；相对路径，不需要.wxml后缀'../test/test?id=1&page=4',
     })
   },
-  // 设置用户信息
+  //设置用户信息
   settingInfo: function (e) {
     var that = this
     wx.navigateTo({
@@ -48,13 +48,13 @@ Page({
     })
   },
   //我的预约 
-  mybooking: function (e) {
+  add: function (e) {
     var that = this
     wx.navigateTo({
-      url: '../../pages/mybooking/mybooking'
+      url: '../../pages/addbook/addbook'
     })
   },
-  //我的动态 
+  //发布 
   mybr: function (e) {
     var that = this
     wx.navigateTo({
