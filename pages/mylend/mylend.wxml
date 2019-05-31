@@ -1,2 +1,24 @@
-<!--pages/mylend/mylend.wxml-->
-<text>pages/mylend/mylend.wxml</text>
+<view class="weui-panel__hd"role=""aria-label="">已借列表</view>
+<view wx:for="{{mylendlist}}">
+  <view class="weui-panel weui-panel_access"role=""aria-label="">
+    <view class="weui-panel__bd"role=""aria-label="">
+      <navigator class="weui-media-box weui-media-box_appmsg weui-cell_active"hover-class="weui-cell_active"url="{{item.pic}}"role="navigation"aria-label="">
+        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg"role=""aria-label="">
+          <image class="image" src="{{item.pic}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+            
+          </image>
+        </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg"role=""aria-label="">
+            <view class="weui-media-box__title"role=""aria-label="">{{item.title}}</view>
+            <view class="weui-media-box__desc"role=""aria-label="">{{item.summary}}</view>
+          </view>
+      </navigator>
+      
+    <view class="weui-cell weui-cell_access weui-cell_link"role=""aria-label="">
+      <view class="weui-cell__bd"role=""aria-label="" bindtap='return' data-value="{{item.isbn}}">还书</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"role=""aria-label=""></view>
+    </view>
+  </view>
+  </view>
+  <text>\n</text> 
+</view>

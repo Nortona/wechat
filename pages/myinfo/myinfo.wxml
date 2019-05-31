@@ -1,17 +1,15 @@
 <view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
-    <view class="page__hd">
-        <view class="page__title">我的资料</view>
-        <view class="page__desc">My Information.</view>
-    </view>
     <view class="page__bd">
-
+        <i-panel title="" hide-border="true" i-class="title">
+            <view class="title" style="padding: 10px;">修改信息</view>
+        </i-panel>
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell weui-cell_input">
                 <view class="weui-cell__hd">
                     <view class="weui-label">姓名</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" bindinput="listenerName" value='{{userinfo.user_name}}' placeholder="姓名"/>
+                    <input class="weui-input" bindinput="listenerName" value='{{userinfo.user_name}}' placeholder="请输入名字"/>
                 </view>
             </view>
             <view class="weui-cell weui-cell_input">
@@ -30,30 +28,32 @@
                     <input class="weui-input" bindinput="listenerPhone"  value='{{userinfo.phone}}' placeholder="请输入手机号" />
                     </view>
             </view>
+            <view class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">QQ</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" bindinput="listenerQQ"  value='{{userinfo.QQ}}' placeholder="请输入QQ" />
+                    </view>
+            </view>
+            <view class="weui-cell weui-cell_input weui-cell_vcode">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">学号</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" bindinput="listenerStudentNum"  value='{{userinfo.StudentNum}}' placeholder="请输入学号" />
+                        </view>
+            </view>
             
         </view>
         
-
-        <view class="weui-cells__title">性别</view>
-        <view class="weui-cells weui-cells_after-title">
-            <view class="weui-cell weui-cell_select">
-                <view class="weui-cell__bd">
-                    <picker bindchange="bindAccountChange" value="{{sexname}}" range="{{accounts}}">
-                        <view class="weui-select">{{sexname}}</view>
-                    </picker>
-                </view>
-            </view>
-           
-        </view>
-
-
-        <view class="weui-btn-area">
-            <button class="weui-btn" type="primary" bindtap="listenerEdit">修改</button>
+        <view class='button'>
+            <i-button bind:click="handleClick" type="ghost" shape="circle" bindtap="listenerEdit">修改信息</i-button>
         </view>
         <view class="page__bd">
         <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{errormsg}}</view>
 
         </view>
 
+        </view>
     </view>
-</view>

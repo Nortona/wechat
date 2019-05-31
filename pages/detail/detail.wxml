@@ -1,4 +1,19 @@
-
-<view wx:for="{{book}}" class="shelf-nav-item">  
-        <text class="name">{{item.name}}</text>
+<view wx:for="{{book}}">
+      <i-row i-class="top">
+            <i-col span="9">
+               <image src="{{item.pic}}" mode="widthFix" lazy-load="false" binderror="" bindload="">
+               </image>
+            </i-col>
+            <i-col offset="1" span="13" i-class="title">{{item.title}}</i-col>
+            <i-row>
+                  <i-col offset="1" span="13" i-class="chinese">作者: {{item.author}}</i-col>
+            </i-row>
+      </i-row>
+      <i-divider  color="#ffafca" lineColor="#ffafca">内容简介</i-divider>
+      <i-row>
+            <i-col offset="1.5" span="21" i-class="chinese">
+               {{item.summary}}
+            </i-col>
+      </i-row>
+      <i-button bind:click="handleClick" type="ghost" shape="circle" bindtap="prelend" data-value="{{item.isbn}}">我要预约</i-button>
 </view>

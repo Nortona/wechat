@@ -1,2 +1,44 @@
-<!--pages/mybr/mybr.wxml-->
-<text>pages/mybr/mybr.wxml</text>
+<view wx:for="{{mybrbooks}}">
+  <view class="weui-panel weui-panel_access"role=""aria-label="">
+    <view class="weui-panel__bd"role=""aria-label="">
+      <navigator class="weui-media-box weui-media-box_appmsg weui-cell_active"hover-class="weui-cell_active"url="{{item.pic}}"role="navigation"aria-label="">
+        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg"role=""aria-label="">
+          <image class="image" src="{{item.pic}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+            
+          </image>
+        </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg"role=""aria-label="">
+            <view class="weui-media-box__title"role=""aria-label="">{{item.title}}</view>
+            <view class="weui-media-box__desc"role=""aria-label="">{{item.summary}}</view>
+          </view>
+      </navigator>
+    <view>
+        <i-row>
+            <view wx:if="{{item.state =='-1'}}">
+                <i-col  span="12" i-class="col-class">
+                  <i-button bindtap='readd' data-value="{{item.isbn}}" size="small" type="ghost" shape="circle">重新上线</i-button>
+                </i-col>
+                <i-col  span="12" i-class="col-class">
+                    <i-button bindtap='delete' data-value="{{item.isbn}}" size="small" type="ghost" shape="circle">永久删除</i-button>
+                  </i-col>
+              </view>
+          <view wx:if="{{item.state =='2'}}">
+            <i-col  span="12" i-class="col-class">
+              <i-button bindtap='return' data-value="{{item.isbn}}" size="small" type="ghost" shape="circle">确定已还书</i-button>
+            </i-col>
+          </view>
+          <view wx:if="{{item.state =='0'}}">
+              <i-col  span="12" i-class="col-class">
+                <i-button data-value="{{item.isbn}}" size="small" type="ghost" shape="circle">已被预约</i-button>
+              </i-col>
+            </view>
+            <view wx:if="{{item.state =='1'}}">
+            <i-col span="12" i-class="col-class">
+              <i-button bindtap='remove' data-value="{{item.isbn}}" size="small" type="ghost" shape="circle">下架该书</i-button>
+            </i-col>
+          </view>
+        </i-row>
+    </view>
+  </view>
+  </view>
+</view>

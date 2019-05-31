@@ -1,1 +1,21 @@
 /* pages/detail/detail.wxss */
+.top{
+    margin-top: 30rpx;
+}
+.image {
+    width: 100%;
+    height: 100%;
+}
+.title{
+    letter-spacing: 6rpx;
+    size: 30rpx;
+    font-weight: 600;
+}
+.chinese{
+    margin-top: 6rpx;
+    letter-spacing: 5rpx;
+    size: 25rpx;
+}
+.button{
+    color: #ffafac;
+}

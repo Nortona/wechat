@@ -1,7 +1,6 @@
 {
-  "usingComponents": {
-    "van-card": "../../dist/card/index",
-    "van-search": "../../dist/search/index",
-    "van-button": "../..//dist/button/index"
+"usingComponents": {
+  "i-card": "../../dst/card/index",
+  "i-button": "../../dst/button/index"
   }
 }

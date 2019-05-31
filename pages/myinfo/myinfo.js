@@ -10,8 +10,6 @@ Page({
     showTopTips: false,
     errormsg:'警告',
     userinfo: {},
-    accounts: ["男", "女",'未填'],
-    sexname: '未填',
   },
 
   /**
@@ -19,22 +17,18 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    GetList(that)
+    var userdata=wx.getStorageSync('userdata')
+    // GetList(that)
   },
-  // 修改性别
-  bindAccountChange: function (e) {
-    this.data.userinfo['sex'] = this.data.accounts[e.detail.value]
-    this.setData({
-      sexname: this.data.accounts[e.detail.value]
-    })
-  },
-  /**
-   * 监听手机号输入
-   */
   listenerPhone: function (e) {
     this.data.userinfo['phone'] = e.detail.value
   },
-
+  listenerQQ: function (e) {
+    this.data.userinfo['QQ'] = e.detail.value
+  },
+  listenerStudentNum: function(e){
+    this.data.userinfo['StudentNum'] = e.detail.value
+  },
   /**
    * 监听名称输入
    */
@@ -58,11 +52,13 @@ Page({
       this.showTopTips('手机号码格式不正确')
     } else if (this.data.userinfo['addr'] == '') {
       this.showTopTips('请输入城市')
+    } else if (this.data.userinfo['QQ'] == '') {
+      this.showTopTips('请输入QQ')
     } else {
           
           var that = this
-          var url1 = app.requestmodifyuserinfoUrl;
-
+          var user=wx.getStorageSync('user');
+          that.data.userinfo['openid']=user.openid;
           wx.showLoading({
             title: '提交中...',
           })
@@ -70,20 +66,34 @@ Page({
             wx.hideLoading()
           }, 2000)
 
-          that.data.userinfo['openid'] = app.globalData.openid;
+          //that.data.userinfo['openid'] = app.globalData.openid;
           wx.request({
             url: "http://39.106.92.62/wechat/AddUserInfo.php",
             data: that.data.userinfo,
             //POST请求要添加下面的header设置
             method: 'POST',
-            header: { "Content-Type": "application/x-www-form-urlencoded" },
+            header: { "Content-Type": "application/x-www-form-urlencoded"},
             success: function (res) {
-
               that.setData({
                 hidden: true
               });
               wx.hideLoading()
+              //console.log(res)
               console.log(res)
+              if(res.data == '1'){
+                wx.showModal({
+                  content: '您已成功修改信息',
+                  showCancel: false,
+                  success: function (res) {
+                      if (res.confirm){
+                          console.log('用户点击确定')
+                          wx.switchTab({
+                            url: '../my/my',
+                          })
+                      }
+                    }
+                });
+              }
               if (res.data['code'] == '0') {
                 wx.showToast({
                   title: res.data['msg']

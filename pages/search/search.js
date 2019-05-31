@@ -2,14 +2,12 @@
   Page({
 
     data:{  
-      searchbooks: {}
+      book: {}
     },  
     onLoad: function(options){
-      var that=this;    
-      this.setData({
-        options_id:options['id']
-      })
-     },
+      var that=this;
+      console.log(options)
+    },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

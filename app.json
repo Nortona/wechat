@@ -1,7 +1,11 @@
 {
   "pages": [
     "pages/login/login",
+    "pages/upmyinfo/upmyinfo",
     "pages/addbook/addbook",
+    "pages/prelend/prelend",
+    "pages/owerinfo/owerinfo",
+    "pages/add_book/add_book",
     "pages/index/index",
     "pages/my/my",
     "pages/list/list",
@@ -10,23 +14,27 @@
     "pages/mylend/mylend",
     "pages/mybr/mybr",
     "pages/myinfo/myinfo",
+    
     "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#ffafc9",
+    "navigationBarTitleText": "图书漂流",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/list/list",
-        "text": "主页"
+        "iconPath": "images/library1.png",
+        "selectedIconPath": "images/library3.png",
+        "pagePath": "pages/list/list"
       },
       {
-        "pagePath":"pages/my/my",
-        "text": "个人"
+        "iconPath": "images/person2.png",
+        "selectedIconPath": "images/person4.png",
+        "pagePath":"pages/my/my"
       }
 
     ]

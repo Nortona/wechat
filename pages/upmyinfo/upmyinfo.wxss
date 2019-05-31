@@ -1,0 +1,6 @@
+/* pages/upmyinfo/upmyinfo.wxss */
+.title{
+  margin-top: 0.2rem;
+  font-size: 1rem;
+  text-align: center;
+}

@@ -6,93 +6,99 @@ Page({
    * 页面的初始数据
    */
   data: {
-    item: [],
-    book: {}
+    book: {},
+    isbn: ''
   },
-  onLoad: function () {
+  onLoad: function (options) {
     var that=this;
+    var isbn=options.isbn;
+    var user=wx.getStorageSync('user')
+    this.setData({
+      isbn: options.isbn
+    })
     wx.request({
-      url: 'http://39.106.92.62/wechat/getbooklist.php',
-      header: {
-        'content-type': 'application/json'
+      url: 'https://mysen.cn/wechat/getbookdetail.php',
+      data: {
+        isbn: isbn
       },
-      method: 'POST',
-      success: res=>{
-        console.log(res);
-        wx.setStorage({
-          key: 'book',
-          data: res.data
-        }),
+      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      // header: {}, // 设置请求的 header
+      success: function(res){
+        console.log(res)
         that.setData({
           book: res.data
         })
       },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
     })
-    // var that = this
-    // var bookdetail = wx.getStorageSync('book')
-    // if (bookdetail) {
-    //   that.setData({
-    //     book: bookdetail
-    //   })
-    // } else {
-    //   console.log('获取新闻内容失败');
-    // }
-    // wx.chooseImage({
-    //   count: 1,
-    //   sizeType: ['original', 'compressed'],
-    //   sourceType: ['album', 'camera'],
-    //   success(res) {
-    //     // tempFilePath可以作为img标签的src属性显示图片
-    //     const tempFilePaths = res.tempFilePaths
-    //   }
-    // })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  prelend: function(e){
+    var valuem=e.target.dataset.value
+    console.log(e.target.dataset.value)
+    var user=wx.getStorageSync('user')
+    wx.request({
+      url: 'https://mysen.cn/wechat/findmyinfo.php',
+      data: {
+        openid: user.openid
+      },
+      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      // header: {}, // 设置请求的 header
+      success: function(res){
+        // success
+        console.log(res)
+        if(res.data['0'].phone){
+          wx.request({
+            url: 'https://mysen.cn/wechat/prelend.php',
+            data: {
+              isbn: valuem,
+              openid: user.openid
+            },
+            method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+            // header: {}, // 设置请求的 header
+            success: function(res){
+              if(res.data=='1'){
+                wx.showModal({
+                  content: '您已成功预约该书',
+                  showCancel: false,
+                  success: function (res) {
+                      if (res.confirm){
+                          console.log('用户点击确定')
+                          wx.switchTab({
+                            url: '../my/my',
+                          })
+                      }
+                    }
+                })
+              }
+            }
+          })
+        }else{
+          wx.showModal({
+            content: '请您先完善身份信息',
+            showCancel: false,
+            success: function (res) {
+                if (res.confirm){
+                    console.log('用户点击确定')
+                    wx.switchTab({
+                      url: '../my/my',
+                    })
+                }
+                
+              }
+          })
+        }
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
   }
 })

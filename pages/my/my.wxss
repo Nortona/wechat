@@ -72,7 +72,7 @@
   }
   
   .msgIcon1{
-    width: 55px;
+  width: 55px;
   height: 55px;
   margin-top: 10px;
   }

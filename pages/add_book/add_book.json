@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "i-button": "../../dst/button/index"
+  }
+}

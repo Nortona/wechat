@@ -8,26 +8,25 @@
     
 </view>
 
-<!-- 
-我的预约：发布的活动预约
-我的动态：参与的拍摄动态发布
-我的优惠券：
-设置：个人信息
- -->
+ <view class='msgListView' bindtap='myprelend'>
+    <image class='msgIcon' src='../../images/yuyue.png'></image>
+    <text class='MsgTxt' >我的预约</text>
+    <image class='msgArrow' src='../../images/jt.png'></image>
+  </view>
 <view class='msgListView' bindtap='mylend'>
-  <image class='msgIcon' src='../../images/yuyue.png'></image>
+  <image class='msgIcon' src='../../images/lend.png'></image>
   <text class='MsgTxt' >我的借阅</text>
   <image class='msgArrow' src='../../images/jt.png'></image>
 </view>
 
 <view class='msgListView' bindtap='mybr'>
-  <image class='msgIcon' src='../../images/dongtai.png'></image>
+  <image class='msgIcon' src='../../images/fabu.png'></image>
   <text class='MsgTxt' >我的发布</text>
   <image class='msgArrow' src='../../images/jt.png'></image>
 </view>
 
 <view class='msgListView' bindtap='add'>
-  <image class='msgIcon' src='../../images/youhui.png'></image>
+  <image class='msgIcon' src='../../images/add.png'></image>
   <text class='MsgTxt' >上传图书</text>
   <image class='msgArrow' src='../../images/jt.png'></image>
 </view>
@@ -37,9 +36,3 @@
   <text class='MsgTxt' >编辑资料</text>
   <image class='msgArrow' src='../../images/jt.png'></image>
 </view>
-
-<!-- <button class="{{showGetUser}} getUserInfo" open-type="getUserInfo"> 授权昵称信息 </button>  -->
-
-<!-- <view class='myView'>联系客服：</view>
-<contact-button class='cBtn' type="default-dark" size="20" session-from="weapp">
-</contact-button>  -->

@@ -1,0 +1,14 @@
+/* pages/add_book/add_book.wxss */
+.title{
+  margin-top: 7rem;
+  text-align: center;
+  color: #ffafca;
+  font-size: 1rem;
+  letter-spacing: 0.1rem
+}
+.zi{
+  word-spacing: 0.2rem
+}
+.button{
+ margin-top: 2rem 
+}

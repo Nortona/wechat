@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
-}
+  "usingComponents": {
+    "i-card": "../../dst/card/index",
+    "i-button": "../../dst/button/index"
+    }
+  }

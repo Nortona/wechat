@@ -1,1 +1,14 @@
-/* pages/list/list.wxss */
+.image {
+    width: 100%;
+    height: 100%;
+}
+.weui-panel__hd{
+  text-align: center
+}
+.more{
+  margin-top: 0.5rem;
+  float: right
+}
+.button{
+  color: #ffafc9
+}

@@ -1,0 +1,38 @@
+<view wx:for="{{myprelend}}">
+  <view class="weui-panel weui-panel_access"role=""aria-label="">
+    <view class="weui-panel__bd"role=""aria-label="">
+      <navigator class="weui-media-box weui-media-box_appmsg weui-cell_active"hover-class="weui-cell_active"url="{{item.pic}}"role="navigation"aria-label="">
+        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg"role=""aria-label="">
+          <image class="image" src="{{item.pic}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+            
+          </image>
+        </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg"role=""aria-label="">
+            <view class="weui-media-box__title"role=""aria-label="">{{item.title}}</view>
+            <view class="weui-media-box__desc"role=""aria-label="">{{item.summary}}</view>
+          </view>
+      </navigator>
+    <i-row>
+        <i-col span="8" i-class="col-class">
+          <i-button bindtap='sao' size="default" data-value="{{item.isbn}}" type="ghost" shape="circle">扫码借书</i-button>
+        </i-col>
+        <i-col span="8" i-class="col-class">
+          <i-button bindtap='cancel' size="default"  data-value="{{item.isbn}}" type="ghost" shape="circle">取消预约</i-button>
+        </i-col>
+        <i-col span="8" i-class="col-class">
+          <i-button bindtap='getinfo' size="default"  data-value="{{item.isbn}}" type="ghost" shape="circle">联系书友</i-button>
+        </i-col>
+    </i-row>
+    <!-- <view class="weui-cell weui-cell_access weui-cell_link"role=""aria-label="">
+      <view class="weui-cell__bd"role=""aria-label="" bindtap='sao' data-value="{{item.isbn}}">扫码开始借书</view>
+    </view>
+    <view class="weui-cell weui-cell_access weui-cell_link"role=""aria-label="">
+        <view class="weui-cell__bd"role=""aria-label="" bindtap='cancel' data-value="{{item.isbn}}">取消预约</view>
+    </view>
+    <view class="weui-cell weui-cell_access weui-cell_link"role=""aria-label="">
+    <view class="weui-cell__bd"role=""aria-label="" bindtap='getinfo' data-value="{{item.isbn}}">联系书友</view>
+    </view> -->
+    </view>
+  </view>
+  <text>\n</text> 
+</view>

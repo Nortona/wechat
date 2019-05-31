@@ -1,0 +1,35 @@
+<view>
+        <i-panel title="" hide-border="true" i-class="title">
+            <view class="title" style="padding: 10px;">请尽快取得联系</view>
+        </i-panel>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__hd">
+                    <image src="{{icon}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+                </view>
+                <view class="weui-cell__bd">名字</view>
+                <view class="weui-cell__ft">{{user_name}}</view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__hd">
+                    <image src="{{icon}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+                </view>
+                <view class="weui-cell__bd">手机号</view>
+                <view class="weui-cell__ft">{{phone}}</view>
+            </view>        
+            <view class="weui-cell">
+                <view class="weui-cell__hd">
+                    <image src="{{icon}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+                </view>
+                <view class="weui-cell__bd">QQ</view>
+                <view class="weui-cell__ft">{{qq}}</view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__hd">
+                    <image src="{{icon}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+                </view>
+                <view class="weui-cell__bd">地址</view>
+                <view class="weui-cell__ft">{{addr}}</view>
+            </view>
+        </view>
+</view>

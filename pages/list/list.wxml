@@ -1,28 +1,40 @@
- 
-<van-search
-  value="{{ value }}"
-  placeholder="请输入搜索关键词"
-  use-action-slot
-  bind:search="onSearch"
-  bind:clear
->
-  <view slot="action" bind:tap="onSearch">搜索</view>
-</van-search>
-<view wx:for="{{book}}">
-  <view>
-    <van-card
-        desc="描述"
-        title="{{item.name}}"
-        thumb="{{item.imageURL }}"
-        lazy-load=ture
-    >
-    <view slot="footer">
-      <van-button size="mini" type="primary" bindtap='more'>更多</van-button>
-    </view>
-  </van-card>  
+<view class="page">
+  <view class="page__bd">
+      <view class="weui-search-bar">
+          <view class="weui-search-bar__form">
+              <view class="weui-search-bar__box">
+                  <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                  <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="search" />
+                  <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                      <icon type="clear" size="14"></icon>
+                  </view>
+              </view>
+              <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                  <icon class="weui-icon-search" type="search" size="14"></icon>
+                  <view class="weui-search-bar__text">搜索</view>
+              </label>
+          </view>
+          <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+      </view>
   </view>
+</view>
+<view wx:for="{{book}}">
+  <button data-value="{{item.isbn}}" long="true" bindtap='more'>
+    <view class="weui-panel weui-panel_access"role=""aria-label="" data-value="{{item.isbn}}" bindtap='more'>
+      <view class="weui-panel__bd"role=""aria-label="">
+        <navigator class="weui-media-box weui-media-box_appmsg weui-cell_active"hover-class="weui-cell_active"url="{{item.pic}}"role="navigation"aria-label="">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg"role=""aria-label="">
+            <image class="image" src="{{item.pic}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+              
+            </image>
+          </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg"role=""aria-label="">
+            <view class="weui-media-box__title"role=""aria-label="">{{item.title}}</view>
+            <view class="weui-media-box__desc"role=""aria-label="">{{item.summary}}</view>
+            </view>
+        </navigator>        
+      </view>
+    </view>
+  </button>
   <text>\n</text>
-                
-        <!-- <text class="time">{{item.name}}</text>
-        <button type="primary" bindtap='more'>更多</button> -->
 </view>

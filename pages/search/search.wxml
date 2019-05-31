@@ -1,1 +1,21 @@
-search
+      <view wx:for="{{book}}">
+        <button data-value="{{item.isbn}}" long="true" bindtap='more'>
+          <view class="weui-panel weui-panel_access"role=""aria-label="" data-value="{{item.isbn}}" bindtap='more'>
+            <view class="weui-panel__bd"role=""aria-label="">
+              <navigator class="weui-media-box weui-media-box_appmsg weui-cell_active"hover-class="weui-cell_active"url="{{item.pic}}"role="navigation"aria-label="">
+                <view class="weui-media-box__hd weui-media-box__hd_in-appmsg"role=""aria-label="">
+                  <image class="image" src="{{item.pic}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+                    
+                  </image>
+                </view>
+                  <view class="weui-media-box__bd weui-media-box__bd_in-appmsg"role=""aria-label="">
+                  <view class="weui-media-box__title"role=""aria-label="">{{item.title}}</view>
+                  <view class="weui-media-box__desc"role=""aria-label="">{{item.summary}}</view>
+                  </view>
+              </navigator>
+            </view>
+          </view>
+        </button>
+        <text>\n</text>
+      </view>
+      

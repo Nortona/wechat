@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    mylendlist: {}
   },
 
   /**
@@ -12,23 +13,39 @@ Page({
    */
   onLoad: function (options) {
     var that=this;
+    var user=wx.getStorageSync('user')
     wx.request({
-      url: 'http://39.106.92.62/wechat/userlend.php',
+      url: 'https://mysen.cn/wechat/mylendlist.php',
+      data: {
+        openid: user.openid
+      },
       header: {
         'content-type': 'application/json'
       },
-      method: 'POST',
+      method: 'GET',
       success: res=>{
         console.log(res);
-        // wx.setStorage({
-        //   key: 'userlend',
-        //   data: res.data
-        // }),
-        // that.setData({
-        //   userlend: res.data
-        // })
+        that.setData({
+          mylendlist: res.data
+        })
       },
     })
+  },
+  return: function(){
+    wx.showModal({
+      content: '请还书后联系书友扫码确认！',
+      showCancel: false,
+      success: function (res) {
+          if (res.confirm){
+              console.log('用户点击确定')
+              wx.navigateBack({
+                delta: 1, // 回退前 delta(默认为1)
+              })({
+                url: '../my/my',
+              })
+          }
+        }
+    });
   },
 
   /**

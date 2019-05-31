@@ -1,0 +1,11 @@
+<!--pages/add_book/add_book.wxml-->
+<view class="box">
+    <view class='title'>
+    <text class="zi" selectable="false" space="false" decode="false">
+        请点击按钮扫描图书的ISBN码
+    </text></view> 
+    
+    <view class='button'>
+    <i-button bind:click="handleClick" type="warn" shape="circle" bindtap='sao'>扫描条形码</i-button>
+    </view>
+</view>

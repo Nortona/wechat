@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "i-row": "../../dst/row/index",
+    "i-col": "../../dst/col/index",
+    "i-divider": "../../dst/divider/index",
+    "i-button": "../../dst/button/index"
+  }
 }
